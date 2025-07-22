@@ -1,0 +1,287 @@
+.review-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f3f9fc 0%, #e6f3fa 100%);
+  padding: 4rem 2rem;
+  font-family: var(--font-family) !important;
+}
+
+.review-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.review-title {
+  text-align: center !important;
+  color: #2A3D56;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  font-weight: 700;
+  font-family: var(--font-family) !important;
+}
+
+.review-form {
+  background: white;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(42, 61, 86, 0.1);
+  margin-bottom: 4rem;
+}
+
+.review-form .MuiTextField-root {
+  margin-bottom: 1.5rem;
+}
+
+.review-form .MuiTextField-root .MuiOutlinedInput-root {
+  background: #f8fbfe;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.review-form .MuiTextField-root .MuiOutlinedInput-root:hover {
+  background: #f3f9fc;
+}
+
+.review-form .MuiTextField-root .MuiOutlinedInput-root.Mui-focused {
+  background: white;
+}
+
+.review-form .MuiTextField-root .MuiOutlinedInput-notchedOutline {
+  border-color: #e6f3fa;
+  border-width: 2px;
+}
+
+.review-form .MuiTextField-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: #d8ebfc;
+}
+
+.review-form .MuiTextField-root .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: #c0e0fa;
+}
+
+.review-form .MuiAutocomplete-root .MuiOutlinedInput-root {
+  padding: 0.8rem;
+}
+
+.review-form .MuiRating-root {
+  font-size: 2rem;
+  color: #FFC107;
+  margin: 1rem 0;
+}
+
+.review-form form .MuiButton-root.MuiButton-contained.MuiButton-containedPrimary.MuiButton-sizeLarge.MuiButton-containedSizeLarge.MuiButton-colorPrimary {
+  background: #5B86E5 !important;
+  color: white !important;
+  padding: 16px 40px !important;
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  text-transform: none !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 15px rgba(91, 134, 229, 0.2) !important;
+  transition: all 0.2s ease-in-out !important;
+  width: auto !important;
+  min-width: 200px !important;
+  margin: 16px auto !important;
+  display: block !important;
+  border: none !important;
+  letter-spacing: 0.5px !important;
+  font-family: var(--font-family) !important;
+}
+
+.review-form form .MuiButton-root.MuiButton-contained.MuiButton-containedPrimary.MuiButton-sizeLarge.MuiButton-containedSizeLarge.MuiButton-colorPrimary:hover {
+  background: #4a75d1 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 20px rgba(91, 134, 229, 0.3) !important;
+}
+
+.review-form form .MuiButton-root.MuiButton-contained.MuiButton-containedPrimary.MuiButton-sizeLarge.MuiButton-containedSizeLarge.MuiButton-colorPrimary:active {
+  transform: translateY(0) !important;
+  box-shadow: 0 2px 10px rgba(91, 134, 229, 0.2) !important;
+}
+
+.reviews-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.reviews-header h2 {
+  color: #2A3D56;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 0;
+  font-family: var(--font-family) !important;
+}
+
+.reviews-header .MuiIconButton-root {
+  background: #f8fbfe;
+  border: 2px solid #e6f3fa;
+  padding: 0.8rem;
+  transition: all 0.3s ease;
+}
+
+.reviews-header .MuiIconButton-root:hover {
+  background: #d8ebfc;
+  border-color: #c0e0fa;
+  transform: translateY(-2px);
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+  align-items: start;
+}
+
+.review-card {
+  background: white;
+  border-radius: 16px;
+  border: 2px solid #e6f3fa;
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.review-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(42, 61, 86, 0.1);
+  border-color: #d8ebfc;
+}
+
+.review-card .MuiPaper-root {
+  height: 100%;
+  background: transparent;
+  box-shadow: none;
+}
+
+.review-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.review-author {
+  font-weight: 600;
+  color: #2A3D56;
+  font-family: var(--font-family) !important;
+}
+
+.review-date {
+  color: #4a5568;
+  font-size: 0.9rem;
+  font-family: var(--font-family) !important;
+}
+
+.review-place {
+  margin-bottom: 1rem;
+}
+
+.review-place-name {
+  font-weight: 500;
+  color: #2A3D56;
+  font-family: var(--font-family) !important;
+}
+
+.review-place-address {
+  color: #4a5568;
+  font-size: 0.9rem;
+  font-family: var(--font-family) !important;
+}
+
+.review-rating {
+  color: #FFC107;
+  margin: 0.5rem 0;
+}
+
+.review-text {
+  color: #4a5568;
+  font-size: 1rem;
+  line-height: 1.5;
+  font-family: var(--font-family) !important;
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.pagination-container .MuiPagination-root {
+  .MuiPaginationItem-root {
+    color: #2A3D56;
+    border: 2px solid #e6f3fa;
+    background: #f8fbfe;
+    transition: all 0.3s ease;
+  }
+
+  .MuiPaginationItem-root:hover {
+    background: #d8ebfc;
+    border-color: #c0e0fa;
+  }
+
+  .MuiPaginationItem-root.Mui-selected {
+    background: #d8ebfc;
+    border-color: #c0e0fa;
+    color: #2A3D56;
+    font-weight: 600;
+  }
+}
+
+@media (max-width: 768px) {
+  .review-page {
+    padding: 2rem 1rem;
+  }
+
+  .review-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .review-form {
+    padding: 1.5rem;
+  }
+}
+
+/* Стили для формы */
+.review-form label,
+.review-form .MuiInputLabel-root,
+.review-form .MuiInputBase-root,
+.review-form .MuiInputBase-input,
+.review-form .MuiOutlinedInput-root,
+.review-form .MuiOutlinedInput-input,
+.review-form .MuiAutocomplete-root .MuiOutlinedInput-root input,
+.review-form .MuiTextField-root input,
+.review-form .MuiTextField-root textarea,
+.review-form .MuiRating-root,
+.review-form .MuiRating-iconEmpty,
+.review-form .MuiRating-iconFilled,
+.review-form .MuiFormLabel-root {
+  font-family: var(--font-family) !important;
+}
+
+/* Стили для отзывов */
+.reviews-header h2,
+.review-card,
+.review-info,
+.review-author,
+.review-date,
+.review-place,
+.review-place-name,
+.review-place-address,
+.review-rating,
+.review-text,
+.pagination-container .MuiPaginationItem-root {
+  font-family: var(--font-family) !important;
+}
+
+.pagination-container .MuiPaginationItem-root {
+  font-family: var(--font-family) !important;
+} 

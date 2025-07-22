@@ -1,0 +1,21 @@
+.about {
+    background-color: #F3F9FC;
+    padding: 7rem 2rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+    margin-bottom: 4rem;
+    width: 70%;
+    margin-left: auto; 
+    margin-right: 0; 
+}
+
+.about-container {
+    max-width: 700px;
+    z-index: 2; 
+}

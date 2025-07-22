@@ -1,0 +1,973 @@
+/* Внешний контейнер */
+.outer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--background-color);
+  padding: 2rem;
+}
+
+/* Основной контейнер страницы */
+.page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 4rem);
+  width: 100%;
+  max-width: 1400px;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* Контейнер для карты и панели управления */
+.map-inner-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  width: 100%;
+  height: 100%;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+/* Панель управления картой */
+.map-ui {
+  width: 300px;
+  min-height: 100%;
+  background: white;
+  padding: 0.8rem 1rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  overflow-y: auto;
+}
+
+.left-panel {
+  width: 300px;
+  padding: 15px;
+}
+
+.right-panel {
+  width: 300px;
+  padding: 15px;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  overflow-y: auto;
+}
+
+/* Кнопки на панели управления */
+.map-ui button {
+  width: 100%;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 12px;
+  background: #d8ebfc !important;
+  color: #2A3D56;
+  font-family: var(--font-family);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: 0 2px 8px rgba(42, 61, 86, 0.1);
+}
+
+.map-ui button:hover {
+  background: #c0e0fa !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(42, 61, 86, 0.15);
+}
+
+.map-ui button:disabled {
+  background: #f0f5fa !important;
+  cursor: not-allowed;
+  color: #8fa3bc;
+  box-shadow: none;
+  transform: none;
+}
+
+/* Контейнер для кнопок режима */
+.mode-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.mode-buttons button {
+  flex: 1;
+  background: #d8ebfc !important;
+  border: 2px solid #c0e0fa;
+}
+
+.mode-buttons button:hover {
+  background: #c0e0fa !important;
+  border-color: #a8d5f8;
+}
+
+.mode-buttons button.active {
+  background: #4bb1cf !important;
+  color: white;
+  border-color: #3a9db8;
+}
+
+.mode-buttons button.active:hover {
+  background: #3a9db8 !important;
+  border-color: #2d8ba6;
+}
+
+/* Контейнер рейтинга */
+.rating-container {
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.rating-container p {
+  margin: 0.5rem 0;
+  color: var(--text-color);
+}
+
+.rating-filter-toggle {
+  background: #f8f9fa;
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+.rating-filter-toggle .MuiFormControlLabel-root {
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.rating-filter-toggle .MuiSwitch-root {
+  margin-right: 0;
+}
+
+/* Выбор категории */
+.category-select {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.category-select label {
+  font-weight: 500;
+  color: var(--primary-color);
+}
+
+/* Стили для Autocomplete в категории */
+.category-select .MuiAutocomplete-root .MuiInputBase-root {
+  padding-right: 0 !important; /* Убираем правый отступ, который может быть из-за иконки */
+}
+
+.category-select .MuiAutocomplete-root .MuiInputBase-input {
+  /* text-align: center; */ /* Убираем центрирование текста */
+  padding: 0.6rem !important; /* Корректируем padding при необходимости */
+}
+
+.category-select .MuiAutocomplete-root .MuiAutocomplete-popupIndicator {
+  display: none; /* Скрываем стрелочку */
+}
+
+.category-select .MuiAutocomplete-root .MuiAutocomplete-clearIndicator {
+  /* Опционально: если хотите скрыть кнопку очистки */
+  /* display: none; */
+}
+
+.category-select select {
+  width: 100%;
+  padding: 0.6rem;
+  border: 2px solid var(--primary-color);
+  border-radius: 10px;
+  font-family: var(--font-family);
+  font-size: 0.97rem;
+  color: var(--primary-color);
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.category-select select:focus {
+  outline: none;
+  border-color: #4bb1cf;
+  box-shadow: 0 0 0 3px rgba(74, 177, 207, 0.2);
+}
+
+.search-bar {
+  position: relative;
+  padding-bottom: 1.5rem;
+}
+
+.search-input {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid var(--primary-color);
+  border-radius: 12px;
+  font-family: var(--font-family);
+  font-size: 1rem;
+  color: var(--primary-color);
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #4bb1cf;
+  box-shadow: 0 0 0 3px rgba(74, 177, 207, 0.2);
+}
+
+.search-input::placeholder {
+  color: #a0a0a0;
+}
+
+.suggestions-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  color: #333;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 999; /* увеличили */
+  margin-top: 0.5rem;
+  list-style: none; /* Убираем маркеры списка */
+  padding: 0; /* Убираем стандартный левый отступ у списка */
+}
+
+.suggestion-item {
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.suggestion-item:hover {
+  background: #f8f9fa;
+}
+
+.suggestion-item.active {
+  background: #e3f2fd;
+}
+
+/* Контейнер карты */
+.map-box {
+  flex-grow: 1;
+  height: 100%;
+  min-height: 600px;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* Кнопка геолокации */
+.geolocation-button {
+  background: #d8ebfc !important;
+  margin-top: auto;
+  border: 2px solid #c0e0fa;
+}
+
+.geolocation-button:hover {
+  background: #c0e0fa !important;
+  border-color: #a8d5f8;
+}
+
+/* Статус */
+.map-ui p {
+  color: #f44336;
+  font-size: 0.9rem;
+  margin: 0;
+  text-align: center;
+}
+
+/* Кнопка поиска */
+.search-button {
+  background: #d8ebfc !important;
+  border: 2px solid #c0e0fa;
+}
+
+.search-button:hover {
+  background: #c0e0fa !important;
+  border-color: #a8d5f8;
+}
+
+/* Адаптивность */
+@media (max-width: 1200px) {
+  .outer-container {
+    padding: 1.5rem;
+  }
+  
+  .page-container {
+    height: calc(100vh - 3rem);
+  }
+  
+  .map-inner-wrapper {
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+  
+  .map-ui {
+    width: 280px;
+    padding: 1.2rem;
+  }
+  
+  .left-panel {
+    width: 280px;
+  }
+  
+  .right-panel {
+    width: 280px;
+  }
+  
+  .map-ui button {
+    padding: 0.7rem 1.2rem;
+  }
+  
+  .search-input {
+    padding: 0.9rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .map-inner-wrapper {
+    flex-direction: column;
+    padding: 1rem;
+    height: auto;
+  }
+
+  .map-ui {
+    width: 100%;
+    min-height: auto;
+    max-height: 300px;
+    padding: 0.6rem 0.7rem;
+    gap: 0.6rem;
+  }
+  
+  .left-panel {
+    width: 100%;
+  }
+  
+  .right-panel {
+    width: 100%;
+  }
+  
+  .map-box {
+    min-height: 500px;
+    height: 500px;
+  }
+  
+  .mode-buttons {
+    flex-wrap: wrap;
+  }
+  
+  .mode-buttons button {
+    flex: 1 0 calc(50% - 0.5rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .outer-container {
+    padding: 1rem;
+  }
+  
+  .page-container {
+    height: calc(100vh - 2rem);
+    border-radius: 15px;
+  }
+  
+  .map-inner-wrapper {
+    padding: 0.8rem;
+    gap: 1rem;
+  }
+  
+  .map-ui {
+    max-height: 250px;
+    padding: 0.5rem 0.5rem;
+    gap: 0.5rem;
+  }
+  
+  .left-panel {
+    width: 100%;
+  }
+  
+  .right-panel {
+    width: 100%;
+  }
+  
+  .map-ui button {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .category-select label {
+    font-size: 0.9rem;
+  }
+  
+  .category-select select {
+    padding: 0.7rem;
+    font-size: 0.9rem;
+    border-radius: 10px;
+  }
+  
+  .search-input {
+    padding: 0.8rem;
+    font-size: 0.9rem;
+  }
+  
+  .suggestion-item {
+    padding: 0.8rem;
+    font-size: 0.9rem;
+  }
+  
+  .map-box {
+    min-height: 400px;
+    height: 400px;
+  }
+  
+  .rating-container {
+    padding: 1rem;
+  }
+  
+  .rating-container p {
+    font-size: 0.9rem;
+  }
+  
+  .custom-select input[type="text"],
+  .custom-select .select-option {
+    padding: 0.7rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .outer-container {
+    padding: 0.5rem;
+  }
+  
+  .page-container {
+    height: calc(100vh - 1rem);
+    border-radius: 10px;
+  }
+  
+  .map-inner-wrapper {
+    padding: 0.5rem;
+    gap: 0.8rem;
+  }
+  
+  .map-ui {
+    max-height: 200px;
+    padding: 0.7rem;
+    gap: 0.8rem;
+    border-radius: 10px;
+  }
+  
+  .left-panel {
+    width: 100%;
+  }
+  
+  .right-panel {
+    width: 100%;
+  }
+  
+  .map-ui button {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.85rem;
+  }
+  
+  .mode-buttons {
+    gap: 0.5rem;
+  }
+  
+  .mode-buttons button {
+    flex: 1 0 100%;
+  }
+  
+  .category-select label {
+    font-size: 0.85rem;
+  }
+  
+  .category-select select {
+    padding: 0.6rem;
+    font-size: 0.85rem;
+    border-radius: 8px;
+  }
+  
+  .search-input {
+    padding: 0.7rem;
+    font-size: 0.85rem;
+    border-radius: 8px;
+  }
+  
+  .suggestion-item {
+    padding: 0.7rem;
+    font-size: 0.85rem;
+  }
+  
+  .map-box {
+    min-height: 300px;
+    height: 300px;
+    border-radius: 10px;
+  }
+  
+  .rating-container {
+    padding: 0.8rem;
+    border-radius: 8px;
+  }
+  
+  .rating-container p {
+    font-size: 0.85rem;
+    margin: 0.3rem 0;
+  }
+  
+  .search-bar {
+    padding-bottom: 2rem;
+  }
+  
+  .custom-select input[type="text"],
+  .custom-select .select-option {
+    padding: 0.6rem;
+    font-size: 0.85rem;
+  }
+}
+
+.route-building-method {
+  margin-bottom: 0.7rem;
+  padding: 0.6rem;
+  background: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.route-building-method label {
+  margin-bottom: 0.4rem;
+  font-size: 0.97rem;
+}
+
+.route-building-method select {
+  padding: 0.6rem;
+  font-size: 0.97rem;
+  border-radius: 10px;
+}
+
+.input-route {
+  margin-bottom: 0.7rem;
+}
+
+.input-route .search-bar {
+  margin-bottom: 0.5rem;
+}
+
+.input-route .route-input {
+  padding: 0.7rem;
+  font-size: 0.97rem;
+  border-radius: 10px;
+}
+
+.input-route .suggestions-list {
+  border-radius: 10px;
+}
+
+.input-route .suggestion-item {
+  padding: 0.7rem;
+  font-size: 0.95rem;
+}
+
+.input-route .mode-buttons {
+  margin-top: 0.5rem;
+}
+
+/* Адаптивность для новых элементов */
+@media (max-width: 992px) {
+  .route-building-method {
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 8px;
+  }
+
+  .route-building-method label {
+    font-size: 0.95rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .route-building-method select,
+  .input-route .route-input {
+    padding: 0.8rem;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .route-building-method {
+    margin-bottom: 0.3rem;
+    padding: 0.3rem;
+    border-radius: 7px;
+  }
+
+  .route-building-method label {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .route-building-method select,
+  .input-route .route-input {
+    padding: 0.7rem;
+    font-size: 0.9rem;
+    border-radius: 10px;
+  }
+
+  .input-route .suggestion-item {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .route-building-method {
+    margin-bottom: 0.6rem;
+    padding: 0.6rem;
+    border-radius: 8px;
+  }
+
+  .route-building-method label {
+    font-size: 0.85rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .route-building-method select,
+  .input-route .route-input {
+    padding: 0.6rem;
+    font-size: 0.85rem;
+    border-radius: 8px;
+  }
+
+  .input-route .suggestion-item {
+    padding: 0.7rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* Стили для кастомного select */
+.custom-select {
+  position: relative;
+  width: 100%;
+  font-family: var(--font-family);
+  font-size: 0.97rem;
+  color: var(--primary-color);
+}
+
+.custom-select input[type="text"] {
+  width: 100%;
+  padding: 0.6rem;
+  border: 2px solid var(--primary-color);
+  border-radius: 10px;
+  font-family: var(--font-family);
+  font-size: 0.97rem;
+  color: var(--primary-color);
+  background: white;
+  transition: all 0.3s ease;
+}
+
+.custom-select input[type="text"]:focus {
+  outline: none;
+  border-color: #4bb1cf;
+  box-shadow: 0 0 0 3px rgba(74, 177, 207, 0.2);
+}
+
+.select-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  border: 2px solid var(--primary-color);
+  border-radius: 10px;
+  background-color: white;
+  max-height: 200px; /* Здесь задаем нужную высоту */
+  overflow-y: auto; /* Добавляем скролл */
+  z-index: 1000; /* Убедитесь, что список поверх других элементов */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.select-option {
+  padding: 0.6rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.select-option:hover {
+  background-color: #f8f9fa;
+}
+
+.route-info {
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.route-info p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #333;
+}
+
+.route-info p:first-child {
+  margin-top: 0;
+}
+
+.route-info p:last-child {
+  margin-bottom: 0;
+}
+
+.points-count-select {
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+}
+
+.points-count-select label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.points-count-select select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+}
+
+.segment-distances {
+  margin-top: 10px;
+  padding: 10px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+}
+
+.segment-distances h4 {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  color: #495057;
+}
+
+.segment-distances p {
+  margin: 4px 0;
+  font-size: 13px;
+  color: #6c757d;
+}
+
+/* Добавляем стили для контейнеров каждого поля ввода адреса */
+.route-input-container {
+  position: relative;
+  margin-bottom: 1.5rem; /* Добавляем нижний отступ */
+}
+
+.route-input-container .search-input {
+  margin-bottom: 0; /* Убираем нижний отступ у самого input, чтобы не дублировался */
+}
+
+.route-input-container .suggestions-list {
+  top: calc(100% + 0.5rem); /* Корректируем top, учитывая margin-top */
+}
+
+.help-button-map {
+  position:absolute;
+  top: 10px;
+  left: 10px;
+  width: 24px;
+  height: 24px;
+  font-size: 14px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9998; /* Lower than guide overlay (9999) */
+  margin: 0;
+  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.3));
+}
+
+.help-button-map:hover {
+  background-color: #e0e0e0;
+}
+
+/* Стили для кнопки запуска интерактивного гида */
+.start-guide-button {
+  position: absolute;
+  top: 10px;
+  left: 70px; /* Располагаем правее кнопки справки */
+  width: 24px; /* Ширина как у кнопки help */
+  height: 24px; /* Высота как у кнопки help */
+  font-size: 14px; /* Размер шрифта */
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000; /* Такой же z-index как у кнопки help */
+  margin: 0;
+  background: #d8ebfc !important; /* Цвет фона как у help */
+  color: #2A3D56; /* Цвет текста как у help */
+  border: none;
+  border-radius: 50%; /* Делаем круглой как help */
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3); /* Тень как у help */
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Анимация при наведении */
+}
+
+.start-guide-button:hover {
+  background-color: #c0e0fa !important; /* Цвет при наведении как у help */
+}
+
+/* Стили для Затемнения */
+.overlay-blur {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Темный полупрозрачный фон */
+  z-index: 9999; /* Под элементами гида (10000+), но над остальным контентом */
+  pointer-events: none; /* Позволяет перехватывать клики */
+  backdrop-filter: blur(5px); /* Эффект размытия */
+  transition: opacity 0.3s ease; /* Плавное появление затемнения */
+}
+
+/* Стили для интерактивного гида */
+.interactive-guide-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10000; /* Убедитесь, что поверх затемнения */
+  pointer-events: none; /* По умолчанию не перехватываем события на уровне оверлея */
+}
+
+/* Стили для блока контента гида */
+.interactive-guide-content {
+  position: absolute;
+  z-index: 10001; /* Убедитесь, что поверх оверлея */
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px; /* Более скругленные углы */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Усиленная тень */
+  max-width: 350px; /* Увеличим немного ширину */
+  pointer-events: none; /* Включить события мыши для контента */
+  transition: all 0.3s ease; /* Плавность */
+  display: flex; /* Используем flexbox для лучшего управления внутренними элементами */
+  flex-direction: column;
+  gap: 1rem; /* Отступ между текстовым блоком и навигацией */
+  font-family: var(--font-family); /* Используем основной шрифт */
+}
+
+.guide-text {
+  margin-bottom: 0;
+  color: #333; /* Более темный текст */
+  font-size: 1.1rem; /* Увеличим размер шрифта */
+  line-height: 1.5; /* Межстрочный интервал */
+}
+
+.guide-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.5rem; /* Небольшой отступ сверху */
+}
+
+.guide-navigation button {
+  padding: 0.6rem 1.2rem; /* Увеличим padding кнопок */
+  background: #e0f2f7; /* Светлее фон кнопок */
+  color: #0077b6; /* Более насыщенный синий текст */
+  border: none;
+  border-radius: 8px; /* Более скругленные углы кнопок */
+  cursor: pointer;
+  transition: background 0.2s ease;
+  pointer-events: auto; /* Enable clicks on buttons */
+  font-size: 1rem; /* Размер шрифта кнопок */
+  font-weight: 600;
+}
+
+.guide-navigation button:hover {
+  background: #b3e5fc; /* Более насыщенный фон при наведении */
+}
+
+.guide-navigation button:disabled {
+  background: #f0f0f0; /* Светлый фон для неактивных */
+  color: #aaa; /* Светлый текст для неактивных */
+  cursor: not-allowed;
+}
+
+.guide-navigation span {
+  font-size: 1rem; /* Размер шрифта для номера шага */
+  color: #555; /* Цвет текста номера шага */
+  font-weight: 600;
+}
+
+.guide-close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 20px;
+  height: 20px;
+  background: none !important;
+  color: #888;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0; /* Убираем margin */
+  pointer-events: auto; /* Make the close button clickable */
+}
+
+.guide-close:hover {
+  color: #333;
+  background: none !important;
+}
+
+/* Стиль для самого элемента подсветки */
+.is-guide-highlighted {
+  border: 2px solid #4bb1cf; /* Обводка как у старой подсветки */
+  box-shadow: 0 0 8px rgba(75, 177, 207, 0.6); /* Добавляем тень для лучшей видимости */
+  transition: all 0.3s ease; /* Плавность */
+  z-index: 10002; /* Убедитесь, что подсвеченный элемент поверх всего */
+  position: relative; /* Убедитесь, что z-index работает */
+  pointer-events: auto; /* Включить события мыши для подсвеченного элемента */
+}
+
+/* Стили для списка подсказок внутри контейнера точки */
+.route-input-container .suggestions-list {
+  z-index: 10002; /* Убедитесь, что список подсказок поверх оверлея и затемнения */
+  pointer-events: auto; /* Включить события мыши для списка подсказок */
+}
+
+@keyframes jump {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0); }
+}
+
+.animate-jump {
+  animation: jump 0.8s ease-in-out infinite;
+}
+

@@ -1,0 +1,15 @@
+.app-container {
+    padding: 1rem 2rem;
+}
+
+.row-container {
+    display: flex;
+    justify-content: space-between; 
+    gap: 2rem; 
+    flex-wrap: wrap; 
+}
+
+.cta-button:hover {
+    background-color: #74a1d0;
+}
+  

@@ -1,0 +1,47 @@
+.features {
+    padding: 4rem 2rem;
+    background-color: #F3F9FC;
+    text-align: center;
+    border-radius: 20px;
+    margin-bottom: 4rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.features-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.feature {
+    background-color: #FFFFFF;
+    padding: 2rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    text-align: center;
+}
+
+.feature:hover {
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #4A90E2;
+}
+
+.feature h3 {
+    font-size: 1.6rem;
+    color: #2A3D56;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.feature p {
+    font-size: 1.1rem;
+    color: #5A6D7B;
+    line-height: 1.5;
+}
